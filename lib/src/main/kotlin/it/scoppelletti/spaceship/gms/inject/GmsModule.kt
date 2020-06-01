@@ -28,8 +28,8 @@ import it.scoppelletti.spaceship.gms.FirebaseExceptionLoggerHandler
 import it.scoppelletti.spaceship.gms.i18n.DefaultGmsMessages
 import it.scoppelletti.spaceship.gms.i18n.GmsMessages
 import it.scoppelletti.spaceship.gms.widget.ApiExceptionMapperHandler
+import it.scoppelletti.spaceship.inject.AppModule
 import it.scoppelletti.spaceship.inject.ExceptionMapperKey
-import it.scoppelletti.spaceship.inject.UIModule
 import it.scoppelletti.spaceship.widget.ExceptionMapperHandler
 
 /**
@@ -37,7 +37,7 @@ import it.scoppelletti.spaceship.widget.ExceptionMapperHandler
  *
  * @since 1.0.0
  */
-@Module(includes = [ UIModule::class ])
+@Module(includes = [ AppModule::class ])
 public abstract class GmsModule {
 
     @Binds

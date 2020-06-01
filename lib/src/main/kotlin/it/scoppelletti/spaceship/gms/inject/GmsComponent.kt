@@ -19,7 +19,7 @@
 package it.scoppelletti.spaceship.gms.inject
 
 import it.scoppelletti.spaceship.gms.i18n.GmsMessages
-import it.scoppelletti.spaceship.inject.UIComponentProvider
+import it.scoppelletti.spaceship.inject.AppComponentProvider
 
 /**
  * Access to the dependencies provided by this library.
@@ -36,7 +36,7 @@ public interface GmsComponent {
  *
  * @since 1.0.0
  */
-public interface GmsComponentProvider : UIComponentProvider {
+public interface GmsComponentProvider : AppComponentProvider {
 
     fun gmsComponent(): GmsComponent
 }
