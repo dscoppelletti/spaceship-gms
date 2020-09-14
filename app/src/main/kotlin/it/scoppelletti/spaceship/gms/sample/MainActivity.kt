@@ -7,7 +7,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import it.scoppelletti.spaceship.ApplicationException
 import it.scoppelletti.spaceship.app.ExceptionDialogFragment
@@ -29,11 +28,11 @@ class MainActivity : AppCompatActivity(), OnDialogResultListener {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         gmsMessages = gmsComponent().gmsMessages()
 
-        viewModel.state.observe(this, Observer { state ->
+        viewModel.state.observe(this) { state ->
             state?.poll()?.let {
                 stateObserver(it)
             }
-        })
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
