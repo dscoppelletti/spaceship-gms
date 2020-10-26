@@ -18,7 +18,7 @@
 
 package it.scoppelletti.spaceship.gms
 
-import com.crashlytics.android.Crashlytics
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import it.scoppelletti.spaceship.ExceptionLoggerHandler
 import javax.inject.Inject
 
@@ -34,6 +34,7 @@ public class FirebaseExceptionLoggerHandler @Inject constructor(
 ): ExceptionLoggerHandler<Throwable> {
 
     override fun log(ex: Throwable) {
-        Crashlytics.logException(ex)
+        val crashlytics = FirebaseCrashlytics.getInstance()
+        crashlytics.recordException(ex)
     }
 }
