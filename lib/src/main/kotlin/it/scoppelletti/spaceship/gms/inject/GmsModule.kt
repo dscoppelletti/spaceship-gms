@@ -47,7 +47,7 @@ public abstract class GmsModule {
 
     @Binds
     @IntoSet
-    abstract fun bindExceptionLoggerHandler(
+    public abstract fun bindExceptionLoggerHandler(
             obj: FirebaseExceptionLoggerHandler
     ): ExceptionLoggerHandler<*>
 
