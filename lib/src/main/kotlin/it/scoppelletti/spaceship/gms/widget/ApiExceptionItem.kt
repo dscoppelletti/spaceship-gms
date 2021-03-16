@@ -30,7 +30,7 @@ import it.scoppelletti.spaceship.toMessage
 import it.scoppelletti.spaceship.widget.ExceptionAdapter
 import it.scoppelletti.spaceship.widget.ExceptionItem
 import it.scoppelletti.spaceship.widget.ExceptionMapperHandler
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 import javax.inject.Inject
 
 /**

@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
 apply plugin: 'org.jetbrains.dokka'
 apply plugin: 'it.scoppelletti.spaceship.spaceship-gradle-android'
 
@@ -44,24 +44,28 @@ android {
 spaceship {
     url = 'http://github.com/dscoppelletti/spaceship-gms'
     scmUrl = 'git@github.com:dscoppelletti/spaceship-gms.git'
-    inceptionYear = '2019'
+    inceptionYear = '2019-2021'
 }
 
 configurations {
     bom
     api.extendsFrom(bom)
+    implementation.extendsFrom(bom)
     kapt.extendsFrom(bom)
 }
 
 dependencies {
     bom platform(BOM)
+    bom platform("com.google.firebase:firebase-bom:${firebase_version}")
     api 'androidx.annotation:annotation'
     api 'androidx.appcompat:appcompat'
     api 'androidx.constraintlayout:constraintlayout'
     api 'com.google.android.gms:play-services-base'
+    api 'com.google.android.gms:play-services-auth'
     api 'com.google.android.material:material'
     api 'com.google.dagger:dagger'
     kapt 'com.google.dagger:dagger-compiler'
+    api 'com.google.firebase:firebase-auth'
     api 'com.google.firebase:firebase-messaging'
     api 'it.scoppelletti.spaceship:spaceship'
     api 'it.scoppelletti.spaceship:spaceship-stdlib'

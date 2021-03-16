@@ -12,6 +12,10 @@ Provides common utility classes.
 
 Contains high-level classes encapsulating the overall Android application model.
 
+# Package it.scoppelletti.spaceship.gms.auth
+
+Support for [Firebase Authentication](http://firebase.google.com/docs/auth).
+
 # Package it.scoppelletti.spaceship.gms.coroutines
 
 Support for Kotlin coroutines.

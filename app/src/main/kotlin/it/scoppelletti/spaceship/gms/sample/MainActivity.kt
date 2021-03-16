@@ -10,13 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import it.scoppelletti.spaceship.ApplicationException
 import it.scoppelletti.spaceship.app.ExceptionDialogFragment
-import it.scoppelletti.spaceship.app.OnDialogResultListener
 import it.scoppelletti.spaceship.app.showExceptionDialog
 import it.scoppelletti.spaceship.app.tryFinish
 import it.scoppelletti.spaceship.gms.app.gmsComponent
 import it.scoppelletti.spaceship.gms.i18n.GmsMessages
 
-class MainActivity : AppCompatActivity(), OnDialogResultListener {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
     private lateinit var gmsMessages: GmsMessages
@@ -24,6 +23,11 @@ class MainActivity : AppCompatActivity(), OnDialogResultListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+
+        supportFragmentManager.setFragmentResultListener(
+                ExceptionDialogFragment.TAG, this) { _, _ ->
+            tryFinish()
+        }
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         gmsMessages = gmsComponent().gmsMessages()
@@ -58,14 +62,6 @@ class MainActivity : AppCompatActivity(), OnDialogResultListener {
         } else {
             showExceptionDialog(ApplicationException(
                     gmsMessages.errorGoogleApiNotAvailable(), state.err))
-        }
-    }
-
-    override fun onDialogResult(tag: String, which: Int) {
-        when (tag) {
-            ExceptionDialogFragment.TAG -> {
-                tryFinish()
-            }
         }
     }
 }

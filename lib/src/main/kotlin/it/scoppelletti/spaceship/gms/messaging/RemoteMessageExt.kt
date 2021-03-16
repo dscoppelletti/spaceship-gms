@@ -22,7 +22,7 @@ package it.scoppelletti.spaceship.gms.messaging
 import com.google.firebase.messaging.RemoteMessage
 
 /**
- * Coverts a `RemoteMessage` to a string.
+ * Converts a `RemoteMessage` to a string.
  *
  * @param  message Message.
  * @return         String.
@@ -113,9 +113,7 @@ public fun toString(message: RemoteMessage): String =
                     append(value)
                 }
                 append(",link=")
-                notification.link?.let { value ->
-                    append(value)
-                }
+                append(notification.link)
             }
 
             append(')')
