@@ -88,18 +88,18 @@ public class ApiExceptionAdapter : ExceptionAdapter<ApiExceptionItem> {
 
         textView = itemView.findViewById(R.id.txtCanceled)
         textView.text = ctx.getString(
-                if (ex.isCanceled) android.R.string.yes else
-                    android.R.string.no)
+                if (ex.isCanceled) R.string.it_scoppelletti_cmd_yes else
+                    R.string.it_scoppelletti_cmd_no)
 
         textView = itemView.findViewById(R.id.txtInterrupted)
         textView.text = ctx.getString(
-                if (ex.isInterrupted) android.R.string.yes else
-                    android.R.string.no)
+                if (ex.isInterrupted) R.string.it_scoppelletti_cmd_yes else
+                    R.string.it_scoppelletti_cmd_no)
 
         textView = itemView.findViewById(R.id.txtHasResolution)
         textView.text = ctx.getString(
-                if (ex.hasResolution) android.R.string.yes else
-                    android.R.string.no)
+                if (ex.hasResolution) R.string.it_scoppelletti_cmd_yes else
+                    R.string.it_scoppelletti_cmd_no)
 
         textView = itemView.findViewById(R.id.txtClass)
         textView.text = ex.className

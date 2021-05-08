@@ -19,3 +19,6 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# AGPBI: {"kind":"warning","text":"Missing class: org.conscrypt.ConscryptHostnameVerifier","sources":[{}],"tool":"R8"}
+-dontwarn org.conscrypt.ConscryptHostnameVerifier

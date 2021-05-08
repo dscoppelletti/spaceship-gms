@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'org.jetbrains.dokka'
-apply plugin: 'it.scoppelletti.spaceship.spaceship-gradle-android'
+apply plugin: 'it.scoppelletti.spaceship.android-library'
 
 group 'it.scoppelletti.spaceship'
 description 'Spaceship for Google Play Services'
@@ -30,6 +30,7 @@ android {
         }
     }
     compileOptions {
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -52,6 +53,7 @@ configurations {
     api.extendsFrom(bom)
     implementation.extendsFrom(bom)
     kapt.extendsFrom(bom)
+    coreLibraryDesugaring.extendsFrom(bom)
 }
 
 dependencies {
@@ -76,4 +78,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics'
     implementation 'io.github.microutils:kotlin-logging'
     implementation 'org.slf4j:slf4j-api'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs'
 }
