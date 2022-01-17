@@ -39,14 +39,8 @@ class GoogleSignInContract : ActivityResultContract<GoogleSignInClient,
 
     override fun createIntent(
             context: Context,
-            input: GoogleSignInClient?
-    ): Intent {
-        val client = requireNotNull(input) {
-            "Argument input is null."
-        }
-
-        return client.signInIntent
-    }
+            input: GoogleSignInClient
+    ): Intent = input.signInIntent
 
     override fun parseResult(
             resultCode: Int,

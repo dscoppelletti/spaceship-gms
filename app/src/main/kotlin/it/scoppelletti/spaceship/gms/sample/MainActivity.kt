@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
             tryFinish()
         }
 
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         gmsMessages = gmsComponent().gmsMessages()
 
         viewModel.state.observe(this) { state ->
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
