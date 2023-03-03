@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-@file:Suppress("RedundantVisibilityModifier")
-
 package it.scoppelletti.spaceship.gms.inject
 
 import it.scoppelletti.spaceship.gms.i18n.GmsMessages
@@ -28,7 +26,7 @@ import it.scoppelletti.spaceship.inject.AppComponentProvider
  */
 public interface GmsComponent {
 
-    fun gmsMessages(): GmsMessages
+    public fun gmsMessages(): GmsMessages
 }
 
 /**
@@ -38,7 +36,7 @@ public interface GmsComponent {
  */
 public interface GmsComponentProvider : AppComponentProvider {
 
-    fun gmsComponent(): GmsComponent
+    public fun gmsComponent(): GmsComponent
 }
 
 

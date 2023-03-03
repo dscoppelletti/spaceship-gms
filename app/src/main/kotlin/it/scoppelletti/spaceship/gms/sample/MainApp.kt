@@ -8,7 +8,6 @@ import it.scoppelletti.spaceship.gms.sample.inject.SampleComponent
 import it.scoppelletti.spaceship.inject.AppComponent
 import it.scoppelletti.spaceship.inject.StdlibComponent
 
-@Suppress("unused")
 class MainApp : Application(), GmsComponentProvider {
 
     private lateinit var _sampleComponent: SampleComponent

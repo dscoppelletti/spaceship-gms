@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-@file:Suppress("RedundantVisibilityModifier")
-
 package it.scoppelletti.spaceship.gms.i18n
 
 import it.scoppelletti.spaceship.i18n.MessageSpec
@@ -27,5 +25,5 @@ import it.scoppelletti.spaceship.i18n.MessageSpec
  */
 public interface GmsMessages {
 
-    fun errorGoogleApiNotAvailable(): MessageSpec
+    public fun errorGoogleApiNotAvailable(): MessageSpec
 }

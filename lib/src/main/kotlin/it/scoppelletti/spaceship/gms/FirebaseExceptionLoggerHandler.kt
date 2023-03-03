@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-@file:Suppress("RedundantVisibilityModifier")
-
 package it.scoppelletti.spaceship.gms
 
 import com.google.firebase.crashlytics.FirebaseCrashlytics

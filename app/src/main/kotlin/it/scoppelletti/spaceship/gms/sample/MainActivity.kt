@@ -1,5 +1,3 @@
-@file:Suppress("JoinDeclarationAndAssignment")
-
 package it.scoppelletti.spaceship.gms.sample
 
 import android.os.Bundle

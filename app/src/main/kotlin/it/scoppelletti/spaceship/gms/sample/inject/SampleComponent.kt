@@ -1,5 +1,3 @@
-@file:Suppress("unused")
-
 package it.scoppelletti.spaceship.gms.sample.inject
 
 import android.app.Application

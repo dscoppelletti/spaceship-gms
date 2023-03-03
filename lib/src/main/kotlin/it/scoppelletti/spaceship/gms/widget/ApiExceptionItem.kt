@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-@file:Suppress("JoinDeclarationAndAssignment", "RedundantVisibilityModifier")
-
 package it.scoppelletti.spaceship.gms.widget
 
-import android.content.Context
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -70,14 +68,12 @@ public class ApiExceptionAdapter : ExceptionAdapter<ApiExceptionItem> {
             ex: ApiExceptionItem,
             parent: ViewGroup
     ): View {
-        val itemView: View
-        val inflater: LayoutInflater
-        val ctx: Context
+        @Suppress("JoinDeclarationAndAssignment")
         var textView: TextView
 
-        ctx = parent.context
-        inflater = LayoutInflater.from(ctx)
-        itemView = inflater.inflate(
+        val ctx = parent.context
+        val inflater = LayoutInflater.from(ctx)
+        val itemView = inflater.inflate(
                 R.layout.it_scoppelletti_apiexception, parent, false)
 
         textView = itemView.findViewById(R.id.txtStatusMessage)
@@ -116,6 +112,7 @@ public class ApiExceptionAdapter : ExceptionAdapter<ApiExceptionItem> {
 public class ApiExceptionMapperHandler @Inject constructor(
 ): ExceptionMapperHandler<ApiException> {
 
+    @SuppressLint("VisibleForTests")
     override fun map(ex: ApiException) : ExceptionItem =
             ApiExceptionItem(
                     message =  ex.toMessage(),

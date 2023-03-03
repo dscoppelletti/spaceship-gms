@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-@file:Suppress("unused")
-
 package it.scoppelletti.spaceship.gms.auth
 
 import android.content.Context
@@ -34,7 +32,7 @@ import com.google.android.gms.tasks.Task
  *
  * @since 1.0.0
  */
-class GoogleSignInContract : ActivityResultContract<GoogleSignInClient,
+public class GoogleSignInContract : ActivityResultContract<GoogleSignInClient,
         Task<GoogleSignInAccount>>() {
 
     override fun createIntent(

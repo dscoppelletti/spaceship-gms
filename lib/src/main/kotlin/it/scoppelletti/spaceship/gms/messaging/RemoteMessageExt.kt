@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-@file:Suppress("JoinDeclarationAndAssignment", "RedundantVisibilityModifier",
-        "unused")
-
 package it.scoppelletti.spaceship.gms.messaging
 
 import com.google.firebase.messaging.RemoteMessage
@@ -30,8 +27,6 @@ import com.google.firebase.messaging.RemoteMessage
  */
 public fun toString(message: RemoteMessage): String =
         buildString {
-            val pos: Int
-
             append("RemoteMessage(messageId=")
             append(message.messageId)
             append(",messageType=")
@@ -52,7 +47,7 @@ public fun toString(message: RemoteMessage): String =
             append(message.collapseKey)
             append(",data={")
 
-            pos = length
+            val pos = length
             message.data.forEach { entry ->
                 if (length > pos) {
                     append(',')

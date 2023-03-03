@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-@file:Suppress("JoinDeclarationAndAssignment", "RedundantVisibilityModifier")
-
 package it.scoppelletti.spaceship.gms.app
 
 import android.app.Activity
@@ -26,7 +24,6 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.Status
 import it.scoppelletti.spaceship.ApplicationException
 import it.scoppelletti.spaceship.gms.coroutines.suspendTask
-import it.scoppelletti.spaceship.gms.i18n.GmsMessages
 import it.scoppelletti.spaceship.gms.inject.GmsComponent
 import it.scoppelletti.spaceship.gms.inject.GmsComponentProvider
 import java.lang.Exception
@@ -52,9 +49,8 @@ public fun Activity.gmsComponent(): GmsComponent =
 public suspend fun makeGooglePlayServicesAvailable(activity: Activity) {
     val result: Int
     val googleApi: GoogleApiAvailability
-    val gmsMessages: GmsMessages
+    val gmsMessages = activity.gmsComponent().gmsMessages()
 
-    gmsMessages = activity.gmsComponent().gmsMessages()
     try {
         googleApi = GoogleApiAvailability.getInstance()
         result = googleApi.isGooglePlayServicesAvailable(activity)

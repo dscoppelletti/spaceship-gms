@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'it.scoppelletti.spaceship'
-version '1.0.0'
+version '1.1.0'
 description 'Spaceship for Google Play Services'
 archivesBaseName = 'spaceship-gms'
 
@@ -21,6 +21,9 @@ android {
         minSdk sdk_min
         targetSdk sdk_target
         vectorDrawables.useSupportLibrary = true
+        aarMetadata {
+            minCompileSdk = sdk_min
+        }
     }
     buildTypes {
         release {
@@ -38,6 +41,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+        freeCompilerArgs += '-Xexplicit-api=strict'
     }
     publishing {
         singleVariant('release') {
@@ -72,14 +76,13 @@ dependencies {
     api 'com.google.android.material:material'
     api 'com.google.dagger:dagger'
     kapt 'com.google.dagger:dagger-compiler'
-    api 'com.google.firebase:firebase-auth'
-    api 'com.google.firebase:firebase-messaging'
+    api 'com.google.firebase:firebase-auth-ktx'
+    api 'com.google.firebase:firebase-messaging-ktx'
     api 'it.scoppelletti.spaceship:spaceship'
     api 'it.scoppelletti.spaceship:spaceship-stdlib'
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-core'
-    implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.firebase:firebase-core'
-    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'io.github.microutils:kotlin-logging'
     implementation 'org.slf4j:slf4j-api'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs'
