@@ -68,7 +68,6 @@ public class ApiExceptionAdapter : ExceptionAdapter<ApiExceptionItem> {
             ex: ApiExceptionItem,
             parent: ViewGroup
     ): View {
-        @Suppress("JoinDeclarationAndAssignment")
         var textView: TextView
 
         val ctx = parent.context
